@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Weather Information Plugin",
+    "name_for_model": "weatherInfo",
+    "description_for_human": "Plugin for retrieving wind speed, pressure, humidity, region, country, and local time for a specified city.",
+    "description_for_model": "This is a plugin for retrieving relevant weather data for a specified city. Use this data to answer prompted questions",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://gpt-test-plugin.herokuapp.com/openapi.yaml",
+        "is_user_authenticated": false
+    },
+    "logo_url": "https://gpt-test-plugin.herokuapp.com/logo.png",
+    "contact_email": "gbadebo.bello@postman.com",
+    "legal_info_url": "https://github.com/Gbahdeyboh"
+}

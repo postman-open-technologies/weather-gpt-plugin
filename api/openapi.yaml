@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: Weather API
+  description: A simple API for retrieving weather information(wind speed, pressure, temperature, and humidity), local times, and regions & country for a specified city.
+  version: 1.0.0
+servers:
+  - url: https://gpt-test-plugin.herokuapp.com
+paths:
+  /weather/wind-pressure-humidity/{city}:
+    get:
+      summary: Get wind speed, pressure, and humidity
+      description: Retrieve the wind speed (kph), pressure (mb), and humidity (%), temperature(c & f), condition, for the specified city.
+      operationId: getWindPressureHumidity
+      parameters:
+        - in: path
+          name: city
+          required: true
+          schema:
+            type: string
+          description: The name of the city for which to retrieve weather information.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  wind_kph:
+                    type: number
+                    description: Wind speed in kilometers per hour.
+                  pressure_mb:
+                    type: number
+                    description: Atmospheric pressure in millibars.
+                  humidity:
+                    type: integer
+                    description: Relative humidity in percentage.
+                  temperate_c:
+                    type: number
+                    description: The temperature in degree celcius
+                  temperate_f:
+                    type: number
+                    description: The temperature in degree Fahrenheit
+                  condition:
+                    type: string
+                    description: A phrase highlighting the condition on the temperature
+        '500':
+          description: Internal server error
+
+  /weather/region-country/{city}:
+    get:
+      summary: Get region and country
+      description: Retrieve the region and country for the specified city.
+      operationId: getRegionCountry
+      parameters:
+        - in: path
+          name: city
+          required: true
+          schema:
+            type: string
+          description: The name of the city for which to retrieve weather information.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  region:
+                    type: string
+                    description: The region of the specified city.
+                  country:
+                    type: string
+                    description: The country of the specified city.
+        '500':
+          description: Internal server error
+
+  /weather/local-time/{city}:
+    get:
+      summary: Get local time
+      description: Retrieve the local time for the specified city.
+      operationId: getLocalTime
+      parameters:
+        - in: path
+          name: city
+          required: true
+          schema:
+            type: string
+          description: The name of the city for which to retrieve weather information.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  localtime:
+                    type: string
+                    description: The local time in the specified city.
+        '500':
+          description: Internal server error

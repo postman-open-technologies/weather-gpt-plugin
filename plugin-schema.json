@@ -1,0 +1,115 @@
+{
+    "$schema":"https://json-schema.org/draft/2020-12/schema",
+    "$id":"https://openai.com/ai-plugin.json",
+    "type": "object",
+    "properties": {
+      "schema_version": {
+        "type": "string",
+        "const": "v1"
+      },
+      "name_for_human": {
+        "type": "string"
+      },
+      "name_for_model": {
+        "type": "string",
+        "pattern": "^[a-zA-Z][a-zA-Z0-9_]+$"
+      },
+      "description_for_human": {
+        "type": "string"
+      },
+      "description_for_model": {
+        "type": "string"
+      },
+      "auth": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["oauth2","none","user_http","service_http"]
+          },
+          "client_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "authorization_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "authorization_content_type": {
+            "type": "string"
+          },
+          "verification_tokens": {
+            "type": "object",
+            "properties": {
+              "openai": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "openai"
+            ]
+          },
+          "authorization_type": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "api": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "openapi"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "has_user_authentication": {
+            "type": "boolean"
+          },
+          "is_user_authenticated": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "url"
+        ]
+      },
+      "logo_url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "contact_email": {
+        "type": "string",
+        "format": "email"
+      },
+      "legal_info_url": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "required": [
+      "schema_version",
+      "name_for_human",
+      "name_for_model",
+      "description_for_human",
+      "description_for_model",
+      "auth",
+      "api",
+      "logo_url",
+      "contact_email",
+      "legal_info_url"
+    ]
+  }
+  
