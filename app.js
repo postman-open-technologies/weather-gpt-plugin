@@ -13,9 +13,9 @@ const apiKey = process.env.WEATHER_API_KEY; // Replace with your Weather API key
 const manifestFilePath = path.join(__dirname, 'manifest.json');
 const manifest = JSON.parse(fs.readFileSync(manifestFilePath, 'utf8'));
 
-app.get('/.well-known/ai-plugin.json', (req, res) => {
-    res.json(manifest);
-});
+// app.get('/.well-known/ai-plugin.json', (req, res) => {
+//     res.json(manifest);
+// });
 
 // Define the path to the OpenAPI file
 const openApiFilePath = path.join(`${__dirname}/api/`, 'openapi.yaml');
