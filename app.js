@@ -6,7 +6,7 @@ const { config } = require('dotenv');
 config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 const apiKey = process.env.WEATHER_API_KEY; // Replace with your Weather API key
 
