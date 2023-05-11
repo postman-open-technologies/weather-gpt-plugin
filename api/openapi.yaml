@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Weather API
-  description: A simple API for retrieving weather information(wind speed, pressure, temperature, and humidity), local times, and regions & country for a specified city.
+  description: An API for retrieving weather information(wind speed, pressure, temperature, and humidity), local times, and regions & country for a specified city.
   version: 1.0.0
 servers:
   - url: https://gpt-test-plugin.herokuapp.com

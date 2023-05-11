@@ -14,7 +14,7 @@ const manifestFilePath = path.join(__dirname, 'manifest.json');
 const manifest = JSON.parse(fs.readFileSync(manifestFilePath, 'utf8'));
 
 app.get('/.well-known/ai-plugin.json', (req, res) => {
-    res.json(manifest);
+  res.json(manifest);
 });
 
 // Define the path to the OpenAPI file
