@@ -11,11 +11,11 @@ const port = process.env.PORT || 8080;
 const apiKey = process.env.WEATHER_API_KEY; // Replace with your Weather API key
 
 const manifestFilePath = path.join(__dirname, 'manifest.json');
-const manifest = JSON.parse(fs.readFileSync(manifestFilePath, 'utf8'));
+// const manifest = JSON.parse(fs.readFileSync(manifestFilePath, 'utf8'));
 
-// app.get('/.well-known/ai-plugin.json', (req, res) => {
-//     res.json(manifest);
-// });
+app.get('/.well-known/ai-plugin.json', (req, res) => {
+    res.json(manifest);
+});
 
 // Define the path to the OpenAPI file
 const openApiFilePath = path.join(`${__dirname}/api/`, 'openapi.yaml');
@@ -64,7 +64,6 @@ app.get('/weather/wind-pressure-humidity/:city', (req, res) => {
         pressure_mb: parsedData.current.pressure_mb,
         humidity: parsedData.current.humidity,
         temperate_c: parsedData.current.temp_c,
-        temperate_f: parsedData.current.temp_f,
         condition: parsedData.current.condition.text,
       };
       res.json(result);

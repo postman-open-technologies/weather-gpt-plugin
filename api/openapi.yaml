@@ -37,10 +37,7 @@ paths:
                     description: Relative humidity in percentage.
                   temperate_c:
                     type: number
-                    description: The temperature in degree celcius
-                  temperate_f:
-                    type: number
-                    description: The temperature in degree Fahrenheit
+                    description: The temperature in degree celsius
                   condition:
                     type: string
                     description: A phrase highlighting the condition on the temperature
